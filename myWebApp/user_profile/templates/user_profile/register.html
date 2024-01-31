@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <h2>Register</h2>
+
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>Error:</strong> Please correct the errors below.
+    </div>
+    {% endif %}
+
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+
+    {% for field, errors in form.errors.items %}
+    {% for error in errors %}
+    <p class="text-danger">{{ field|capfirst }}: {{ error }}</p>
+    {% endfor %}
+    {% endfor %}
+</body>
+
+</html>

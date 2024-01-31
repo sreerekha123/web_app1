@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+
+<body>
+    <h2>Welcome to Your Profile, {{ user.username }}!</h2>
+    <p>Your email: {{ user.email }}</p>
+    <a href="{% url 'profile_update' %}">Update Profile</a>
+    <br>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+
+</html>
